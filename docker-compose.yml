@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  hailo-face:
+    build: .
+    container_name: hailo-face-server
+    restart: always
+    devices:
+      - /dev/hailo0:/dev/hailo0
+    environment:
+      - API_KEY=tajne_haslo_123
+      - DEBUG_MODE=False
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
